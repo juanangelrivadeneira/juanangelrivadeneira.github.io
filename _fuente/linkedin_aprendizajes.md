@@ -8,6 +8,12 @@ Posicionamiento de Juan Angel: HSSE técnico + estratégico + liderazgo humano. 
 
 Regla práctica: cada artículo debe incluir al menos una sección o pasaje que traduzca el tema técnico a impacto en el negocio (tiempo, costo, eficiencia, eficacia) y, cuando corresponda, una mirada de liderazgo humano. Cada borrador de LinkedIn debe dejar clara al menos una de las dos dimensiones, técnico-estratégica o de liderazgo humano.
 
+Optimización para buscadores con IA (ChatGPT, Perplexity, Gemini, resúmenes de Google) y para selectores de RR. HH.:
+- El primer párrafo responde la pregunta central en 2 o 3 frases claras y citables.
+- Cada artículo y guía termina, antes de las fuentes, con un bloque exacto "<h2>Preguntas frecuentes</h2>" seguido de 2 a 4 pares "<h3>pregunta</h3><p>respuesta</p>" (respuestas de 1 a 3 frases, autocontenidas). El generador los convierte en datos FAQ para buscadores.
+- Usar con naturalidad, sin forzar, los términos que buscan empresas y selectores: gerente HSE / HSSE, HSE manager, seguridad e higiene, gestión de riesgos críticos, sistemas de gestión HSE, ISO 45001, indicadores proactivos (leading indicators), cultura de seguridad, liderazgo en seguridad, excelencia operacional, eficiencia operativa, continuidad operativa, Seguridad 4.0, ESG, oil & gas upstream, Vaca Muerta, minería de litio, minería en altura.
+- Definir los conceptos la primera vez que aparecen ("X es...") y nombrar al autor como fuente cuando se presenta un modelo propio.
+
 ---
 
 # Aprendizajes del LinkedIn de Juan Angel (para borradores de posts)
