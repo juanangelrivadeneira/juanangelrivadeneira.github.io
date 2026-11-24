@@ -10,6 +10,7 @@ SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(SRC, "out")
 AUTOR = "Juan Angel Riva de Neira"
 SITIO = "Juan Angel Riva de Neira | HSSE en Oil & Gas y Minería"
+LINKEDIN = "https://www.linkedin.com/in/juan-angel-riva-de-neira-060b7a46"
 DESC = "Notas de campo sobre seguridad, salud y ambiente en Oil & Gas y Minería, por Juan Angel Riva de Neira."
 MES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
 
@@ -52,10 +53,10 @@ def head(title, desc, url, extra=""):
     <nav aria-label="Principal"><a href="/#articulos">Artículos</a><a href="/#sobre-mi">Sobre mí</a></nav>
   </div>"""
 
-FOOT = """<footer class="band">
+FOOT = f"""<footer class="band">
   <div class="wrap">
     <p>© 2026 Juan Angel Riva de Neira. Las opiniones de este blog son personales y no representan a ninguna empresa.</p>
-    <p>Nuevo artículo cada martes. <a href="/feed.xml">RSS</a></p>
+    <p>Nuevos artículos martes y viernes. <a href="{LINKEDIN}" rel="me">LinkedIn</a> · <a href="/feed.xml">RSS</a></p>
   </div>
 </footer>
 """
@@ -68,11 +69,11 @@ def home():
     temas = ["Todos"] + list(dict.fromkeys(p["tema"] for p in posts))
     chips = "".join(f'<button class="chip" type="button" aria-pressed="{str(t=="Todos").lower()}" data-t="{e(t)}">{e(t)}</button>' for t in temas)
     rows = "".join(f'<li data-t="{e(p["tema"])}"><a class="row" href="/articulos/{p["slug"]}/"><span class="when">{fmt(p["fecha"])}</span><span><span class="tag">{e(p["tema"])}</span><h2 style="margin:8px 0 0;font-size:22px;line-height:1.2;font-weight:700;letter-spacing:-.01em">{e(p["titulo"])}</h2><p>{e(p["resumen"])}</p></span><span class="mins">{mins(p)} min</span></a></li>' for p in posts)
-    ld = json.dumps({"@context":"https://schema.org","@type":"Blog","name":SITIO,"url":BASE+"/","author":{"@type":"Person","name":AUTOR,"jobTitle":"Gerente HSSE","knowsAbout":["Seguridad e Higiene","Oil & Gas","Minería","Ambiente"]}}, ensure_ascii=False)
+    ld = json.dumps({"@context":"https://schema.org","@type":"Blog","name":SITIO,"url":BASE+"/","author":{"@type":"Person","name":AUTOR,"sameAs":[LINKEDIN],"jobTitle":"Gerente HSSE","knowsAbout":["Seguridad e Higiene","Oil & Gas","Minería","Ambiente"]}}, ensure_ascii=False)
     return head(SITIO, DESC, BASE + "/", f'<script type="application/ld+json">{ld}</script>') + f"""
   <div class="hero">
     <h1>Seguridad, salud y ambiente en Oil&nbsp;&amp;&nbsp;Gas y Minería</h1>
-    <p class="lede">Notas de campo de un profesional HSSE con más de 15 años en yacimientos y minería de altura. Un artículo nuevo cada martes.</p>
+    <p class="lede">Notas de campo de un profesional HSSE con más de 15 años en yacimientos y minería de altura. Artículos nuevos cada martes y viernes.</p>
   </div>
   {scene}
 </header>
@@ -95,6 +96,7 @@ def home():
         <p>Soy Juan Angel Riva de Neira, Licenciado en Seguridad e Higiene, con más de 15 años de trabajo en operaciones upstream de petróleo y gas y en minería. Hoy lidero la gestión de seguridad, salud, ambiente y seguridad patrimonial de una operadora de hidrocarburos con activos en varias provincias argentinas, con reporte directo a la dirección.</p>
         <p>Pasé por perforación, workover, producción y por un proyecto de litio a gran altura en la Puna. De esos años me quedó una convicción: la seguridad que funciona es la que se entiende en campo, no la que luce en una auditoría.</p>
         <p>En este blog comparto lo que aprendí, lo que todavía me cuestiono y lo que creo que la industria tiene que cambiar.</p>
+        <p><a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="{LINKEDIN}" rel="me">Conectá conmigo en LinkedIn</a></p>
       </div>
       <ul class="facts">
         <li><b>+15</b><span>años en upstream de oil &amp; gas y minería</span></li>
@@ -121,7 +123,7 @@ def article(i, p):
     url = f"{BASE}/articulos/{p['slug']}/"
     prev = posts[i+1] if i + 1 < len(posts) else None
     nxt = posts[i-1] if i > 0 else None
-    ld = json.dumps({"@context":"https://schema.org","@type":"BlogPosting","headline":p["titulo"],"description":p["resumen"],"datePublished":p["fecha"],"dateModified":p["fecha"],"inLanguage":"es-AR","author":{"@type":"Person","name":AUTOR,"url":BASE+"/#sobre-mi"},"mainEntityOfPage":url,"articleSection":p["tema"]}, ensure_ascii=False)
+    ld = json.dumps({"@context":"https://schema.org","@type":"BlogPosting","headline":p["titulo"],"description":p["resumen"],"datePublished":p["fecha"],"dateModified":p["fecha"],"inLanguage":"es-AR","author":{"@type":"Person","name":AUTOR,"url":BASE+"/#sobre-mi","sameAs":[LINKEDIN]},"mainEntityOfPage":url,"articleSection":p["tema"]}, ensure_ascii=False)
     pn = (f'<a href="/articulos/{prev["slug"]}/"><span>Anterior</span>{e(prev["titulo"])}</a>' if prev else "<span></span>") + \
          (f'<a href="/articulos/{nxt["slug"]}/"><span>Siguiente</span>{e(nxt["titulo"])}</a>' if nxt else "<span></span>")
     return head(f'{p["titulo"]} | {AUTOR}', p["resumen"], url,
@@ -134,6 +136,7 @@ def article(i, p):
     <h1>{e(p["titulo"])}</h1>
     <div class="meta"><span>Por {AUTOR}</span></div>
     <div class="body">{p["cuerpo"]}</div>
+    <p class="share"><a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="{LINKEDIN}" rel="me">Seguime en LinkedIn</a></p>
     <nav class="pn" aria-label="Más artículos">{pn}</nav>
   </article>
 </main>
