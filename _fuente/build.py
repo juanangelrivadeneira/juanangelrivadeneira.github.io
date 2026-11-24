@@ -39,6 +39,10 @@ def head(title, desc, url, extra=""):
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
 <meta property="og:locale" content="es_AR">
+<meta property="og:image" content="{BASE}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{e(SITIO)}" href="{BASE}/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,6 +151,8 @@ def build():
     os.makedirs(OUT, exist_ok=True)
     shutil.rmtree(os.path.join(OUT, "articulos"), ignore_errors=True)
     shutil.copy(os.path.join(SRC, "styles.css"), OUT)
+    if os.path.abspath(OUT) != os.path.abspath(os.path.dirname(SRC)) or not os.path.exists(os.path.join(OUT, "og.png")):
+        shutil.copy(os.path.join(SRC, "og.png"), OUT)
     open(os.path.join(OUT, "index.html"), "w").write(home())
     for i, p in enumerate(posts):
         d = os.path.join(OUT, "articulos", p["slug"])
