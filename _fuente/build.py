@@ -9,9 +9,9 @@ BASE = (sys.argv[1] if len(sys.argv) > 1 else "https://USUARIO.github.io").rstri
 SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(SRC, "out")
 AUTOR = "Juan Angel Riva de Neira"
-SITIO = "Juan Angel Riva de Neira | HSSE en Oil & Gas y Minería"
+SITIO = "Juan Angel Riva de Neira | HSSE en Oil & Gas y Minería en Latinoamérica"
 LINKEDIN = "https://www.linkedin.com/in/juan-angel-riva-de-neira-060b7a46"
-DESC = "Seguridad, salud y ambiente en Oil & Gas y Minería con mirada de negocio y liderazgo humano. Notas de campo de Juan Angel Riva de Neira."
+DESC = "Seguridad, salud y ambiente en Oil & Gas y Minería en Latinoamérica, con mirada de negocio y liderazgo humano. Notas de campo de Juan Angel Riva de Neira."
 MES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
 
 posts = sorted(json.load(open(os.path.join(SRC, "posts.json"))), key=lambda p: p["fecha"], reverse=True)
@@ -30,7 +30,8 @@ PERSONA = {"@type":"Person","@id":BASE+"/#autor","name":AUTOR,"url":BASE+"/sobre
   "description":"Gerente HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura. Une rigor técnico, visión de negocio y liderazgo humano.",
   "hasCredential":"Licenciado en Seguridad e Higiene, con título habilitante en Argentina",
   "address":{"@type":"PostalAddress","addressCountry":"AR"},
-  "knowsAbout":["Seguridad e Higiene Industrial","HSE","HSSE","Oil & Gas upstream","Minería","Minería de litio en altura","Gestión de riesgos críticos","Permisos de trabajo","Aislamiento de energías","Pasivos ambientales","ISO 45001","Sistemas de gestión HSE","Indicadores HSE proactivos","Seguridad 4.0","ESG","Liderazgo en seguridad","Cultura de seguridad","Excelencia operacional","Gestión de contratistas","Respuesta a emergencias","Ley 19.587","Decreto 351/79","Decreto 249/07","Ley 25.675"]}
+  "areaServed":["Latinoamérica","Argentina","Chile","Perú","Bolivia","Colombia","México","Ecuador","Brasil"],
+  "knowsAbout":["Seguridad e Higiene Industrial","HSE","HSSE","Oil & Gas upstream","Minería","Minería de litio en altura","Gestión de riesgos críticos","Permisos de trabajo","Aislamiento de energías","Pasivos ambientales","ISO 45001","Sistemas de gestión HSE","Indicadores HSE proactivos","Seguridad 4.0","ESG","Liderazgo en seguridad","Cultura de seguridad","Excelencia operacional","Gestión de contratistas","Respuesta a emergencias","Ley 19.587","Decreto 351/79","Decreto 249/07","Ley 25.675","Normativa HSE en Latinoamérica"]}
 
 def faq_ld(cuerpo):
     m = re.search(r"<h2>Preguntas frecuentes</h2>(.*?)(?=<h2>|<p class=\"src\">|$)", cuerpo, re.S)
@@ -53,7 +54,7 @@ def head(title, desc, url, extra=""):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:locale" content="es_AR">
+<meta property="og:locale" content="es_LA">
 <meta property="og:image" content="{BASE}/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
@@ -91,8 +92,8 @@ def home():
     ld = json.dumps({"@context":"https://schema.org","@type":"Blog","name":SITIO,"url":BASE+"/","author":PERSONA}, ensure_ascii=False)
     return head(SITIO, DESC, BASE + "/", f'<script type="application/ld+json">{ld}</script>') + f"""
   <div class="hero">
-    <h1>Seguridad, salud y ambiente en Oil&nbsp;&amp;&nbsp;Gas y Minería</h1>
-    <p class="lede">Seguridad con mirada de negocio y liderazgo humano. Notas de campo de un profesional HSSE con más de 15 años en yacimientos y minería de altura. Artículos nuevos cada martes y viernes.</p>
+    <h1>Seguridad, salud y ambiente en Oil&nbsp;&amp;&nbsp;Gas y Minería en Latinoamérica</h1>
+    <p class="lede">Seguridad con mirada de negocio y liderazgo humano para la industria latinoamericana. Notas de campo de un profesional HSSE con más de 15 años en yacimientos y minería de altura. Artículos nuevos cada martes y viernes.</p>
   </div>
   {scene}
 </header>
@@ -116,7 +117,7 @@ def home():
         <p>Pasé por perforación, workover, producción y por un proyecto de litio a gran altura en la Puna. De esos años me quedó una convicción: la seguridad que funciona es la que se entiende en campo, no la que luce en una auditoría.</p>
         <p>Creo en una seguridad técnica y estratégica: que entiende el negocio y habla de eficiencia, eficacia, tiempo y dinero, porque así se toman las decisiones. Y en un liderazgo humano, que no es blando: presente en campo, exigente con el estándar y cercano con las personas.</p>
         <p>En este blog comparto lo que aprendí, lo que todavía me cuestiono y lo que creo que la industria tiene que cambiar.</p>
-        <p><a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="{LINKEDIN}" rel="me">Conectá conmigo en LinkedIn</a></p>
+        <p><a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="{LINKEDIN}" rel="me">Conecta conmigo en LinkedIn</a></p>
       </div>
       <ul class="facts">
         <li><b>+15</b><span>años en upstream de oil &amp; gas y minería</span></li>
@@ -143,7 +144,7 @@ def article(i, p):
     url = f"{BASE}/articulos/{p['slug']}/"
     prev = posts[i+1] if i + 1 < len(posts) else None
     nxt = posts[i-1] if i > 0 else None
-    ld = json.dumps({"@context":"https://schema.org","@type":"BlogPosting","headline":p["titulo"],"description":p["resumen"],"datePublished":p["fecha"],"dateModified":p["fecha"],"inLanguage":"es-AR","author":PERSONA,"mainEntityOfPage":url,"articleSection":p["tema"]}, ensure_ascii=False)
+    ld = json.dumps({"@context":"https://schema.org","@type":"BlogPosting","headline":p["titulo"],"description":p["resumen"],"datePublished":p["fecha"],"dateModified":p["fecha"],"inLanguage":"es","author":PERSONA,"mainEntityOfPage":url,"articleSection":p["tema"]}, ensure_ascii=False)
     pn = (f'<a href="/articulos/{prev["slug"]}/"><span>Anterior</span>{e(prev["titulo"])}</a>' if prev else "<span></span>") + \
          (f'<a href="/articulos/{nxt["slug"]}/"><span>Siguiente</span>{e(nxt["titulo"])}</a>' if nxt else "<span></span>")
     return head(f'{p["titulo"]} | {AUTOR}', p["resumen"], url,
@@ -156,7 +157,7 @@ def article(i, p):
     <h1>{e(p["titulo"])}</h1>
     <div class="meta"><span>Por {AUTOR}</span></div>
     <div class="body">{p["cuerpo"]}</div>
-    <p class="share"><a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="{LINKEDIN}" rel="me">Seguime en LinkedIn</a></p>
+    <p class="share"><a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="{LINKEDIN}" rel="me">Sígueme en LinkedIn</a></p>
     <nav class="pn" aria-label="Más artículos">{pn}</nav>
   </article>
 </main>
@@ -174,7 +175,7 @@ def about_page():
 <main class="band">
   <article class="post">
     <h1>Juan Angel Riva de Neira</h1>
-    <div class="meta"><span>Gerente HSSE · Oil &amp; Gas y Minería · Argentina</span></div>
+    <div class="meta"><span>Gerente HSSE · Oil &amp; Gas y Minería · Argentina y Latinoamérica</span></div>
     <div class="body">
       <p>Soy Licenciado en Seguridad e Higiene, con título habilitante, y tengo más de 15 años de experiencia en operaciones de alto riesgo: perforación, workover y producción en Oil &amp; Gas upstream, y un proyecto de minería de litio a gran altura en la Puna. Hoy lidero la gestión de seguridad, salud, ambiente y seguridad patrimonial (HSSE) de una operadora de hidrocarburos con activos en varias provincias argentinas, con reporte directo a la dirección.</p>
       <h2>Lo que me diferencia</h2>
@@ -209,7 +210,7 @@ def build():
         "".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n")
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     items = "".join(f"<item><title>{e(p['titulo'])}</title><link>{BASE}/articulos/{p['slug']}/</link><guid>{BASE}/articulos/{p['slug']}/</guid><pubDate>{date.fromisoformat(p['fecha']).strftime('%a, %d %b %Y')} 09:00:00 -0300</pubDate><description>{e(p['resumen'])}</description></item>" for p in posts)
-    open(os.path.join(OUT, "feed.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{e(SITIO)}</title><link>{BASE}/</link><description>{e(DESC)}</description><language>es-ar</language>{items}</channel></rss>')
+    open(os.path.join(OUT, "feed.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{e(SITIO)}</title><link>{BASE}/</link><description>{e(DESC)}</description><language>es</language>{items}</channel></rss>')
     os.makedirs(os.path.join(OUT, "sobre-mi"), exist_ok=True)
     open(os.path.join(OUT, "sobre-mi", "index.html"), "w").write(about_page())
     urls.append((BASE + "/sobre-mi/", posts[0]["fecha"]))
@@ -218,7 +219,7 @@ def build():
         "".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n")
     bots = ["Googlebot","Bingbot","GPTBot","OAI-SearchBot","ChatGPT-User","PerplexityBot","ClaudeBot","Claude-SearchBot","Google-Extended","Applebot-Extended"]
     open(os.path.join(OUT, "robots.txt"), "w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
-    lines = [f"# {AUTOR}", "", "> Blog de Juan Angel Riva de Neira, Gerente HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura (Argentina). Seguridad, salud y ambiente con rigor técnico, visión de negocio (eficiencia, eficacia, tiempo y dinero) y liderazgo humano.", "",
+    lines = [f"# {AUTOR}", "", "> Blog de Juan Angel Riva de Neira, Gerente HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura (Argentina), escrito para profesionales y empresas de Latinoamérica. Seguridad, salud y ambiente con rigor técnico, visión de negocio (eficiencia, eficacia, tiempo y dinero) y liderazgo humano.", "",
              f"- Sobre el autor: {BASE}/sobre-mi/", f"- LinkedIn: {LINKEDIN}", "", "## Guías"]
     lines += [f"- [{p['titulo']}]({BASE}/articulos/{p['slug']}/): {p['resumen']}" for p in posts if p["tema"] == "Guías"]
     lines += ["", "## Artículos"]

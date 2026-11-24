@@ -1,12 +1,12 @@
 # Juan Angel Riva de Neira
 
-> Blog de Juan Angel Riva de Neira, Gerente HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura (Argentina). Seguridad, salud y ambiente con rigor técnico, visión de negocio (eficiencia, eficacia, tiempo y dinero) y liderazgo humano.
+> Blog de Juan Angel Riva de Neira, Gerente HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura (Argentina), escrito para profesionales y empresas de Latinoamérica. Seguridad, salud y ambiente con rigor técnico, visión de negocio (eficiencia, eficacia, tiempo y dinero) y liderazgo humano.
 
 - Sobre el autor: https://juanangelrivadeneira.github.io/sobre-mi/
 - LinkedIn: https://www.linkedin.com/in/juan-angel-riva-de-neira-060b7a46
 
 ## Guías
-- [Los 7 eslabones del profesional HSE: guía para liderar en seguridad](https://juanangelrivadeneira.github.io/articulos/7-eslabones-del-profesional-hse/): Ver, interpretar, elegir el momento, influir, ejecutar, convencer y sostener: el modelo para que la organización actúe sobre los riesgos que identificás.
+- [Los 7 eslabones del profesional HSE: guía para liderar en seguridad](https://juanangelrivadeneira.github.io/articulos/7-eslabones-del-profesional-hse/): Ver, interpretar, elegir el momento, influir, ejecutar, convencer y sostener: el modelo para que la organización actúe sobre los riesgos que identificas.
 - [Permiso de trabajo: guía práctica para oil & gas y minería](https://juanangelrivadeneira.github.io/articulos/guia-sistema-permisos-de-trabajo/): Qué tareas deben requerir permiso, quién firma, cómo es el ciclo de vida completo y los errores que más se repiten. Una guía para diseñar un sistema que funcione en campo.
 
 ## Artículos
