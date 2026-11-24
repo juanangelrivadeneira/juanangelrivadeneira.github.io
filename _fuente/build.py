@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Genera el sitio estático del blog a partir de posts.json.
-Uso: python3 build.py https://USUARIO.github.io  (sale en ./out)
+Uso desde la raíz del repo: python3 _fuente/build.py https://juanangelrivadeneira.github.io .
 """
 import json, sys, re, os, shutil, html
 from datetime import date
 
 BASE = (sys.argv[1] if len(sys.argv) > 1 else "https://USUARIO.github.io").rstrip("/")
 SRC = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(SRC, "out")
+OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(SRC, "out")
 AUTOR = "Juan Angel Riva de Neira"
 SITIO = "Juan Angel Riva de Neira | HSSE en Oil & Gas y Minería"
 DESC = "Notas de campo sobre seguridad, salud y ambiente en Oil & Gas y Minería, por Juan Angel Riva de Neira."
@@ -141,9 +141,8 @@ def article(i, p):
 </html>"""
 
 def build():
-    if os.path.exists(OUT):
-        shutil.rmtree(OUT)
-    os.makedirs(OUT)
+    os.makedirs(OUT, exist_ok=True)
+    shutil.rmtree(os.path.join(OUT, "articulos"), ignore_errors=True)
     shutil.copy(os.path.join(SRC, "styles.css"), OUT)
     open(os.path.join(OUT, "index.html"), "w").write(home())
     for i, p in enumerate(posts):
