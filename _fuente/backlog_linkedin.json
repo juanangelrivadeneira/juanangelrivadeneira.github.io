@@ -1,0 +1,74 @@
+[
+ {
+  "id": "riesgo-tiene-memoria",
+  "estado": "pendiente",
+  "tema": "Gestión HSSE",
+  "titulo_sugerido": "Normalización del desvío: el riesgo tiene memoria",
+  "busqueda_objetivo": "normalización del desvío en seguridad",
+  "post_original": "Nunca vi a un accidente avisar que esta vez sí iba a ocurrir. Las veces anteriores también había salido bien. Ese permiso completado a las apuradas, ese paso del procedimiento omitido porque 'nunca pasa nada', esa reunión previa suspendida porque 'el trabajo es simple', ese desvío que todos vieron y nadie corrigió. Y el trabajo terminó sin incidentes. Aparece la frase más peligrosa: 'Viste, al final no pasó nada'. Esta vez. Los sistemas aprenden de aquello que toleran: cada desvío con buen resultado aumenta la tentación de repetirlo hasta que se vuelve la forma habitual de trabajar. Ahí ya no gestionamos el riesgo, administramos probabilidades. Un buen resultado no siempre valida una buena decisión; a veces solo confirma que tuvimos suerte. La excelencia aparece cuando dejamos de depender de la suerte y empezamos a depender del sistema. Las formas importan. El riesgo tiene memoria: puede no reclamar hoy ni mañana, pero nunca olvida los desvíos que una organización decide normalizar.",
+  "nota": "1.751 impresiones en LinkedIn. Se puede citar el concepto de normalización de la desviación (Diane Vaughan, caso Challenger) verificándolo."
+ },
+ {
+  "id": "rediseñar-antes-de-digitalizar",
+  "estado": "pendiente",
+  "tema": "Gestión HSSE",
+  "titulo_sugerido": "Permisos de trabajo digitales: rediseñar antes de digitalizar",
+  "busqueda_objetivo": "permiso de trabajo digital",
+  "post_original": "En un webinar sobre permisos de trabajo digitales con colegas de gran trayectoria, la mayoría de las preguntas eran sobre la tecnología: cómo llega el permiso al aprobador, qué pasa sin conectividad, cómo se firma. Creo que es la pregunta equivocada. Pasar un formulario de papel a una pantalla es solo digitalizar un documento. La transformación empieza al cuestionar el proceso: ¿todas las aprobaciones agregan valor? ¿toda la información que pedimos es necesaria? ¿qué controles pueden automatizarse? ¿qué deberían hacer las personas y qué el sistema? Si no rediseñamos el proceso, trasladamos la burocracia del papel a una pantalla. En HSE hablamos de eliminar el Safety Clutter; apliquemos el mismo criterio a la digitalización. No digitalizamos formularios. Diseñamos mejores decisiones.",
+  "nota": "Enlazar a /articulos/guia-sistema-permisos-de-trabajo/ y /articulos/permiso-de-trabajo-para-todo/. Post con más interacción relativa."
+ },
+ {
+  "id": "seguridad-compite-por-capital",
+  "estado": "pendiente",
+  "tema": "Liderazgo",
+  "titulo_sugerido": "Cómo justificar una inversión en seguridad ante el directorio",
+  "busqueda_objetivo": "cómo justificar una inversión en seguridad",
+  "post_original": "Cada vez que aparece una nueva tecnología para HSE me entusiasma y después aparece la pregunta incómoda: ¿lograría que un Directorio apruebe esta inversión? En la universidad recibimos excelente formación técnica y, sin querer, un mensaje: 'Los costos no son tu problema. Tu trabajo es prevenir'. Esa idea alejó a muchos profesionales de donde se toman las decisiones. Una empresa no decide entre invertir o no en seguridad: decide entre decenas de inversiones que compiten por el mismo capital (un equipo, una planta, un pozo, una automatización, un casco inteligente). El problema rara vez es la tecnología: es que la presentamos como un gasto y no como una decisión de negocio. Hay que responder: ¿qué riesgo crítico reduce? ¿qué pérdidas evita? ¿qué productividad mejora? ¿qué costo operativo disminuye? ¿cuál es el retorno esperado? La seguridad no compite contra la producción: compite por capital. El próximo salto de la profesión quizás venga cuando dejemos de presentar proyectos de seguridad y presentemos decisiones de negocio.",
+  "nota": "Ya resumido en el eslabón 6 de la guía de los 7 eslabones; el artículo debe profundizar en cómo armar el caso de negocio (estructura práctica) y enlazar a la guía."
+ },
+ {
+  "id": "procesos-antes-que-estructura",
+  "estado": "pendiente",
+  "tema": "Gestión HSSE",
+  "titulo_sugerido": "Procesos antes que estructura: por qué sumar gente no ordena una operación",
+  "busqueda_objetivo": "definir procesos antes que estructura",
+  "post_original": "'El desorden no se resuelve incorporando más personas. Se resuelve definiendo procesos.' La industria energética argentina vive nuevos operadores, adquisición de campos maduros y estructuras que crecen rápido con presión por producir y bajar costos. Ante problemas de coordinación, demoras o retrabajos, la respuesta suele ser sumar supervisores, analistas, coordinadores. Muchas veces el problema no es la cantidad de personas sino la ausencia de procesos: cada uno interpreta y prioriza según su criterio, y la organización se vuelve persona-dependiente. Primero definir el proceso, después los recursos humanos y técnicos, recién entonces la estructura. No al revés. Los recursos potencian un proceso; no reemplazan la ausencia de uno. ¿Si mañana tu operación creciera un 30%, tus procesos lo sostendrían?",
+  "nota": ""
+ },
+ {
+  "id": "liderar-con-preguntas",
+  "estado": "pendiente",
+  "tema": "Liderazgo",
+  "titulo_sugerido": "Liderar en seguridad con mejores preguntas",
+  "busqueda_objetivo": "preguntas de liderazgo en seguridad",
+  "post_original": "Volviendo en el auto, mi hija me preguntó: '¿Pa, vos siempre sabés qué hacer?'. Le respondí: 'No. Lo que pasa es que aprendí a hacer mejores preguntas'. Esa respuesta resume mi evolución como líder. Hace veinte años creía que un buen líder tenía respuestas para todo. Hoy creo que los mejores líderes hacen las preguntas correctas: ¿Qué riesgo estamos pasando por alto? ¿Qué evidencia tenemos? ¿Qué opinan quienes van a ejecutar? ¿Qué podría salir mal? En seguridad, una buena pregunta puede prevenir un incidente; una mala certeza puede provocarlo. Cuando un líder siente que siempre debe tener la respuesta, deja de escuchar, y la organización deja de hablar: le responden lo que quiere oír. La experiencia no debería cerrar conversaciones sino ayudarnos a formular mejores preguntas.",
+  "nota": "Anécdota personal publicada por él en LinkedIn; se puede usar tal cual (sin nombrar a la hija)."
+ },
+ {
+  "id": "competencia-vs-metodologia",
+  "estado": "pendiente",
+  "tema": "Liderazgo",
+  "titulo_sugerido": "Control no es gestión: el valor del profesional HSE en tiempos de IA",
+  "busqueda_objetivo": "rol del profesional HSE inteligencia artificial",
+  "post_original": "Abundan los profesionales que saben explicar cómo deberían hacerse las cosas. Pero conocer una metodología no es tener la competencia para aplicarla en un contexto. La realidad operativa tiene restricciones, recursos limitados, imprevistos y culturas arraigadas. La competencia es interpretar el contexto, adaptar, decidir y ejecutar. Una solución técnicamente impecable pero imposible de implementar no es buena solución. Cuando no hay resultados, solemos responsabilizar a quienes ejecutan sin revisar si nuestras propuestas eran aplicables. En HSE, si solo recordamos requisitos, controlamos documentos y señalamos incumplimientos, confundimos control con gestión. La IA ya procesa requisitos y detecta brechas en segundos; si nuestro valor se limita a eso, tenemos un problema. Nuestro diferencial es el criterio, la experiencia operativa y convertir conocimiento en soluciones. ¿Diseñamos soluciones para la realidad operativa o esperamos que la operación se adapte a nuestras recetas?",
+  "nota": ""
+ },
+ {
+  "id": "criterio-recurso-escaso",
+  "estado": "pendiente",
+  "tema": "Liderazgo",
+  "titulo_sugerido": "El criterio, el recurso más escaso de Oil & Gas y minería",
+  "busqueda_objetivo": "talento oil and gas argentina criterio",
+  "post_original": "El recurso más escaso de la industria no está bajo tierra. Con las inversiones que vienen para Argentina (desarrollos, ductos, plantas) todo puede planificarse y financiarse, pero hay algo que ninguna inversión acelera: el criterio. Una colega me dijo: 'el mercado energético crece, pero las oportunidades son para los más jóvenes'. Mi mirada es distinta: crece la demanda de personas capaces de tomar buenas decisiones. Decidir en esta industria es gestionar riesgos, priorizar, decir 'no' cuando todos esperan un 'sí', sostener una decisión bajo presión, aprender de los errores antes de que sean incidentes. Ese criterio no aparece con un curso ni con un ascenso: se construye con años de operación. No creo que el mercado premie la edad ni solo la experiencia, sino el criterio que aparece cuando la experiencia se transforma en aprendizaje. Un pozo se perfora en semanas, una planta en años; formar a alguien capaz de liderar lleva mucho más. Las inversiones desarrollan proyectos. El criterio desarrolla industrias.",
+  "nota": "700 impresiones."
+ },
+ {
+  "id": "crisis-empleabilidad",
+  "estado": "pendiente",
+  "tema": "Liderazgo",
+  "titulo_sugerido": "Oil & Gas y minería: no hay crisis de empleo, hay crisis de empleabilidad",
+  "busqueda_objetivo": "falta de personal calificado minería oil and gas",
+  "post_original": "No estamos frente a una crisis de empleo sino de empleabilidad. En Oil & Gas y minería se repite: 'no conseguimos personal calificado' (técnicos, operadores, supervisores, ingenieros). ¿Preparamos a las nuevas generaciones para los trabajos que van a existir? La oferta académica evoluciona más lento que la tecnología; el mercado pide análisis de datos, automatización, IA, pensamiento crítico, resolución de problemas y adaptación. Pero las empresas también somos responsables: exigimos experiencia y autonomía pero ¿cuánto invertimos en desarrollarlas? Buscamos al profesional terminado. Queremos talento pero no siempre estamos dispuestos a construirlo. El post citaba al World Economic Forum: 39% de las competencias actuales cambiará o quedará obsoleto hacia 2030, y 59 de cada 100 trabajadores necesitarán capacitación antes de ese año. El título abre la puerta; las competencias te permiten permanecer. No podemos seguir reclamando el talento que no ayudamos a desarrollar.",
+  "nota": "VERIFICAR las cifras del WEF (Future of Jobs Report 2025) en weforum.org antes de usarlas; si no coinciden, corregir o quitar."
+ }
+]
