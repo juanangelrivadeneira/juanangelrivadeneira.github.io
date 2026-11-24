@@ -11,7 +11,7 @@ OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(SRC, "out")
 AUTOR = "Juan Angel Riva de Neira"
 SITIO = "Juan Angel Riva de Neira | HSSE en Oil & Gas y Minería"
 LINKEDIN = "https://www.linkedin.com/in/juan-angel-riva-de-neira-060b7a46"
-DESC = "Notas de campo sobre seguridad, salud y ambiente en Oil & Gas y Minería, por Juan Angel Riva de Neira."
+DESC = "Seguridad, salud y ambiente en Oil & Gas y Minería con mirada de negocio y liderazgo humano. Notas de campo de Juan Angel Riva de Neira."
 MES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
 
 posts = sorted(json.load(open(os.path.join(SRC, "posts.json"))), key=lambda p: p["fecha"], reverse=True)
@@ -77,7 +77,7 @@ def home():
     return head(SITIO, DESC, BASE + "/", f'<script type="application/ld+json">{ld}</script>') + f"""
   <div class="hero">
     <h1>Seguridad, salud y ambiente en Oil&nbsp;&amp;&nbsp;Gas y Minería</h1>
-    <p class="lede">Notas de campo de un profesional HSSE con más de 15 años en yacimientos y minería de altura. Artículos nuevos cada martes y viernes.</p>
+    <p class="lede">Seguridad con mirada de negocio y liderazgo humano. Notas de campo de un profesional HSSE con más de 15 años en yacimientos y minería de altura. Artículos nuevos cada martes y viernes.</p>
   </div>
   {scene}
 </header>
@@ -99,6 +99,7 @@ def home():
         <h2>Sobre mí</h2>
         <p>Soy Juan Angel Riva de Neira, Licenciado en Seguridad e Higiene, con más de 15 años de trabajo en operaciones upstream de petróleo y gas y en minería. Hoy lidero la gestión de seguridad, salud, ambiente y seguridad patrimonial de una operadora de hidrocarburos con activos en varias provincias argentinas, con reporte directo a la dirección.</p>
         <p>Pasé por perforación, workover, producción y por un proyecto de litio a gran altura en la Puna. De esos años me quedó una convicción: la seguridad que funciona es la que se entiende en campo, no la que luce en una auditoría.</p>
+        <p>Creo en una seguridad técnica y estratégica: que entiende el negocio y habla de eficiencia, eficacia, tiempo y dinero, porque así se toman las decisiones. Y en un liderazgo humano, que no es blando: presente en campo, exigente con el estándar y cercano con las personas.</p>
         <p>En este blog comparto lo que aprendí, lo que todavía me cuestiono y lo que creo que la industria tiene que cambiar.</p>
         <p><a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="{LINKEDIN}" rel="me">Conectá conmigo en LinkedIn</a></p>
       </div>
