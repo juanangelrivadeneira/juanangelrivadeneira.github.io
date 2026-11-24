@@ -166,7 +166,8 @@ def build():
     items = "".join(f"<item><title>{e(p['titulo'])}</title><link>{BASE}/articulos/{p['slug']}/</link><guid>{BASE}/articulos/{p['slug']}/</guid><pubDate>{date.fromisoformat(p['fecha']).strftime('%a, %d %b %Y')} 09:00:00 -0300</pubDate><description>{e(p['resumen'])}</description></item>" for p in posts)
     open(os.path.join(OUT, "feed.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{e(SITIO)}</title><link>{BASE}/</link><description>{e(DESC)}</description><language>es-ar</language>{items}</channel></rss>')
     open(os.path.join(OUT, "404.html"), "w").write(head("Página no encontrada", DESC, BASE + "/") + '\n</header><main class="band"><div class="post"><h1>Esta página no existe</h1><p><a href="/">Volver al inicio</a></p></div></main>' + FOOT + "</body></html>")
-    open(os.path.join(OUT, ".nojekyll"), "w").write("")
+    # Sin .nojekyll: Jekyll no publica la carpeta _fuente
+    pass
     print("OK:", len(posts), "artículos ->", OUT)
 
 build()
