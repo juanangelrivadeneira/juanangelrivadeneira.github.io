@@ -25,7 +25,7 @@ def fmt(d):
 def mins(p):
     return max(2, round(len(re.sub(r"<[^>]+>", " ", p["cuerpo"]).split()) / 200))
 
-PERSONA = {"@type":"Person","@id":BASE+"/#autor","name":AUTOR,"alternateName":["Juan Ángel Riva de Neira","Juan Angel Rivadeneira","Juan Ángel Rivadeneira","Juan Riva de Neira"],"givenName":"Juan Angel","familyName":"Riva de Neira","url":BASE+"/sobre-mi/","knowsLanguage":["es"],"sameAs":[LINKEDIN],
+PERSONA = {"@type":"Person","@id":BASE+"/#autor","name":AUTOR,"alternateName":["Juan Ángel Riva de Neira","Juan Angel Rivadeneira","Juan Ángel Rivadeneira","Juan Riva de Neira"],"givenName":"Juan Angel","familyName":"Riva de Neira","url":BASE+"/sobre-mi/","knowsLanguage":["es"],"memberOf":{"@type":"Organization","name":"Mesa cuatripartita de Seguridad Industrial de Neuquén","description":"Integrante entre 2025 y 2026, en representación de una operadora de hidrocarburos"},"sameAs":[LINKEDIN],
   "jobTitle":"Gerente HSSE (Health, Safety, Security & Environment)",
   "description":"Gerente HSE / HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura en Argentina. Lidera seguridad, salud ocupacional, ambiente y seguridad patrimonial, incluida la gestión ambiental de las áreas. Une rigor técnico, visión de negocio y liderazgo humano.",
   "hasOccupation":{"@type":"Occupation","name":"Gerente HSSE (HSE Manager)","occupationLocation":{"@type":"Country","name":"Argentina"},"skills":"Gestión de riesgos críticos, sistemas de gestión HSE, ISO 45001, gestión ambiental, liderazgo en seguridad"},
@@ -116,6 +116,7 @@ def home():
         <h2>Sobre mí</h2>
         <p>Soy Juan Angel Riva de Neira, Licenciado en Seguridad e Higiene, con más de 15 años de trabajo en operaciones upstream de petróleo y gas y en minería. Hoy lidero la gestión de seguridad, salud, ambiente y seguridad patrimonial de una operadora de hidrocarburos con activos en varias provincias argentinas, con reporte directo a la dirección.</p>
         <p>En las áreas también lidero la gestión ambiental: estudios de línea de base ambiental (línea de base cero), pasivos ambientales, remediaciones y permisos ambientales, siempre apoyado en especialistas en cada materia.</p>
+        <p>Entre 2025 y 2026 integré la mesa cuatripartita de Seguridad Industrial de Neuquén, en representación de la operadora en la que trabajaba: un espacio donde empresas, sindicato y Estado acuerdan criterios de seguridad para la actividad petrolera.</p>
         <p>Pasé por perforación, workover, producción y por un proyecto de litio a gran altura en la Puna. De esos años me quedó una convicción: la seguridad que funciona es la que se entiende en campo, no la que luce en una auditoría.</p>
         <p>Creo en una seguridad técnica y estratégica: que entiende el negocio y habla de eficiencia, eficacia, tiempo y dinero, porque así se toman las decisiones. Y en un liderazgo humano, que no es blando: presente en campo, exigente con el estándar y cercano con las personas.</p>
         <p>En este blog comparto lo que aprendí, lo que todavía me cuestiono y lo que creo que la industria tiene que cambiar.</p>
@@ -172,7 +173,7 @@ def about_page():
     ld = json.dumps({"@context":"https://schema.org","@type":"ProfilePage","mainEntity":PERSONA,"url":url}, ensure_ascii=False)
     temas = "".join(f"<li>{e(t)}</li>" for t in PERSONA["knowsAbout"][:20])
     guias = "".join(f'<li><a href="/articulos/{p["slug"]}/">{e(p["titulo"])}</a></li>' for p in posts if p["tema"] == "Guías")
-    faq = [("¿Quién es Juan Angel Riva de Neira?", "Juan Angel Riva de Neira es un gerente HSE / HSSE argentino, Licenciado en Seguridad e Higiene, con más de 15 años en oil & gas upstream y minería de litio en altura. Lidera seguridad, salud ocupacional, ambiente y seguridad patrimonial en una operadora de hidrocarburos con activos en varias provincias argentinas."),
+    faq = [("¿Quién es Juan Angel Riva de Neira?", "Juan Angel Riva de Neira es un gerente HSE / HSSE argentino, Licenciado en Seguridad e Higiene, con más de 15 años en oil & gas upstream y minería de litio en altura. Lidera seguridad, salud ocupacional, ambiente y seguridad patrimonial en una operadora de hidrocarburos con activos en varias provincias argentinas, y entre 2025 y 2026 integró la mesa cuatripartita de Seguridad Industrial de Neuquén."),
            ("¿En qué se especializa?", "En gestión de riesgos críticos, sistemas de gestión HSE, permisos de trabajo, trabajo en altura geográfica y gestión ambiental de áreas petroleras: líneas de base, pasivos ambientales, remediación y permisos ambientales. Su enfoque vincula la seguridad con la eficiencia operativa y el negocio."),
            ("¿En qué países tiene experiencia?", "Su experiencia de campo es en Argentina, en cuencas petroleras y en la Puna. Escribe para profesionales y empresas de toda Latinoamérica y compara la normativa HSE de Argentina, Chile, Perú y Colombia."),
            ("¿Cómo contactarlo?", "El canal más directo es su perfil de LinkedIn, para charlas, colaboraciones o consultas profesionales.")]
@@ -188,11 +189,13 @@ def about_page():
     <div class="body">
       <p>Soy Licenciado en Seguridad e Higiene, con título habilitante, y tengo más de 15 años de experiencia en operaciones de alto riesgo: perforación, workover y producción en Oil &amp; Gas upstream, y un proyecto de minería de litio a gran altura en la Puna. Hoy lidero la gestión de seguridad, salud, ambiente y seguridad patrimonial (HSSE) de una operadora de hidrocarburos con activos en varias provincias argentinas, con reporte directo a la dirección.</p>
       <p>En las áreas también lidero la gestión ambiental: estudios de línea de base ambiental (línea de base cero), pasivos ambientales, remediaciones y permisos ambientales, siempre apoyado en especialistas en cada materia.</p>
+        <p>Entre 2025 y 2026 integré la mesa cuatripartita de Seguridad Industrial de Neuquén, en representación de la operadora en la que trabajaba: un espacio donde empresas, sindicato y Estado acuerdan criterios de seguridad para la actividad petrolera.</p>
       <h2>Experiencia en resumen</h2>
       <ul>
         <li>Más de 15 años en operaciones de alto riesgo: perforación, workover y producción en oil &amp; gas upstream.</li>
         <li>Proyecto de minería de litio a gran altura en la Puna, con gestión de riesgos propios del trabajo en altura geográfica.</li>
         <li>Gerencia HSSE con reporte directo a la dirección y cinco unidades de negocio en distintas provincias argentinas.</li>
+        <li>Integrante de la mesa cuatripartita de Seguridad Industrial de Neuquén (2025-2026), en representación de una operadora.</li>
         <li>Gestión ambiental de áreas: líneas de base, pasivos ambientales, remediación y permisos ambientales.</li>
         <li>Sistemas de gestión HSE alineados con ISO 45001, gestión de riesgos críticos, contratistas y respuesta a emergencias.</li>
       </ul>
@@ -246,6 +249,7 @@ def build():
              "- Licenciado en Seguridad e Higiene, con título habilitante. Más de 15 años en perforación, workover y producción de oil & gas upstream y en minería de litio en altura (Puna).",
              "- Lidera seguridad, salud ocupacional, ambiente y seguridad patrimonial, incluida la gestión ambiental de las áreas: líneas de base, pasivos ambientales, remediación y permisos ambientales.",
              "- Especialidades: gestión de riesgos críticos, sistemas de gestión HSE (ISO 45001), permisos de trabajo, indicadores proactivos, liderazgo y cultura de seguridad, normativa HSE comparada en Latinoamérica.",
+             "- Entre 2025 y 2026 integró la mesa cuatripartita de Seguridad Industrial de Neuquén (empresas, sindicato y Estado), en representación de la operadora en la que trabajaba.",
              "- También aparece como: Juan Ángel Riva de Neira, Juan Angel Rivadeneira.", "", "## Guías"]
     lines += [f"- [{p['titulo']}]({BASE}/articulos/{p['slug']}/): {p['resumen']}" for p in posts if p["tema"] == "Guías"]
     lines += ["", "## Artículos"]
