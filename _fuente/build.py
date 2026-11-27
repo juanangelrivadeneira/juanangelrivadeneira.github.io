@@ -31,7 +31,7 @@ PERSONA = {"@type":"Person","@id":BASE+"/#autor","name":AUTOR,"url":BASE+"/sobre
   "hasCredential":"Licenciado en Seguridad e Higiene, con título habilitante en Argentina",
   "address":{"@type":"PostalAddress","addressCountry":"AR"},
   "areaServed":["Latinoamérica","Argentina","Chile","Perú","Bolivia","Colombia","México","Ecuador","Brasil"],
-  "knowsAbout":["Seguridad e Higiene Industrial","HSE","HSSE","Oil & Gas upstream","Minería","Minería de litio en altura","Gestión de riesgos críticos","Permisos de trabajo","Aislamiento de energías","Pasivos ambientales","ISO 45001","Sistemas de gestión HSE","Indicadores HSE proactivos","Seguridad 4.0","ESG","Liderazgo en seguridad","Cultura de seguridad","Excelencia operacional","Gestión de contratistas","Respuesta a emergencias","Ley 19.587","Decreto 351/79","Decreto 249/07","Ley 25.675","Normativa HSE en Latinoamérica"]}
+  "knowsAbout":["Seguridad e Higiene Industrial","HSE","HSSE","Oil & Gas upstream","Minería","Minería de litio en altura","Gestión de riesgos críticos","Permisos de trabajo","Aislamiento de energías","Pasivos ambientales","Estudios de línea de base ambiental","Remediación ambiental","Permisos ambientales","ISO 45001","Sistemas de gestión HSE","Indicadores HSE proactivos","Seguridad 4.0","ESG","Liderazgo en seguridad","Cultura de seguridad","Excelencia operacional","Gestión de contratistas","Respuesta a emergencias","Ley 19.587","Decreto 351/79","Decreto 249/07","Ley 25.675","Normativa HSE en Latinoamérica"]}
 
 def faq_ld(cuerpo):
     m = re.search(r"<h2>Preguntas frecuentes</h2>(.*?)(?=<h2>|<p class=\"src\">|$)", cuerpo, re.S)
@@ -114,6 +114,7 @@ def home():
       <div>
         <h2>Sobre mí</h2>
         <p>Soy Juan Angel Riva de Neira, Licenciado en Seguridad e Higiene, con más de 15 años de trabajo en operaciones upstream de petróleo y gas y en minería. Hoy lidero la gestión de seguridad, salud, ambiente y seguridad patrimonial de una operadora de hidrocarburos con activos en varias provincias argentinas, con reporte directo a la dirección.</p>
+        <p>En las áreas también lidero la gestión ambiental: estudios de línea de base ambiental (línea de base cero), pasivos ambientales, remediaciones y permisos ambientales, siempre apoyado en especialistas en cada materia.</p>
         <p>Pasé por perforación, workover, producción y por un proyecto de litio a gran altura en la Puna. De esos años me quedó una convicción: la seguridad que funciona es la que se entiende en campo, no la que luce en una auditoría.</p>
         <p>Creo en una seguridad técnica y estratégica: que entiende el negocio y habla de eficiencia, eficacia, tiempo y dinero, porque así se toman las decisiones. Y en un liderazgo humano, que no es blando: presente en campo, exigente con el estándar y cercano con las personas.</p>
         <p>En este blog comparto lo que aprendí, lo que todavía me cuestiono y lo que creo que la industria tiene que cambiar.</p>
@@ -178,6 +179,7 @@ def about_page():
     <div class="meta"><span>Gerente HSSE · Oil &amp; Gas y Minería · Argentina y Latinoamérica</span></div>
     <div class="body">
       <p>Soy Licenciado en Seguridad e Higiene, con título habilitante, y tengo más de 15 años de experiencia en operaciones de alto riesgo: perforación, workover y producción en Oil &amp; Gas upstream, y un proyecto de minería de litio a gran altura en la Puna. Hoy lidero la gestión de seguridad, salud, ambiente y seguridad patrimonial (HSSE) de una operadora de hidrocarburos con activos en varias provincias argentinas, con reporte directo a la dirección.</p>
+      <p>En las áreas también lidero la gestión ambiental: estudios de línea de base ambiental (línea de base cero), pasivos ambientales, remediaciones y permisos ambientales, siempre apoyado en especialistas en cada materia.</p>
       <h2>Lo que me diferencia</h2>
       <p>Técnica y estrategia. Domino el oficio técnico, pero mi foco está en vincular la seguridad con el negocio: eficiencia, eficacia, continuidad operativa, tiempo y dinero. La seguridad no compite contra la producción; compite por capital, y hay que saber presentarla como una decisión de negocio.</p>
       <p>Liderazgo humano, no blando. Presencia en campo, estándar alto y cercanía con las personas. Respaldar a quien decide bien, frenar lo que está mal y escuchar a quien ejecuta.</p>
