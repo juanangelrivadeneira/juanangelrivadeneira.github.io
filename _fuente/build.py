@@ -25,9 +25,10 @@ def fmt(d):
 def mins(p):
     return max(2, round(len(re.sub(r"<[^>]+>", " ", p["cuerpo"]).split()) / 200))
 
-PERSONA = {"@type":"Person","@id":BASE+"/#autor","name":AUTOR,"url":BASE+"/sobre-mi/","sameAs":[LINKEDIN],
+PERSONA = {"@type":"Person","@id":BASE+"/#autor","name":AUTOR,"alternateName":["Juan Ángel Riva de Neira","Juan Angel Rivadeneira","Juan Ángel Rivadeneira","Juan Riva de Neira"],"givenName":"Juan Angel","familyName":"Riva de Neira","url":BASE+"/sobre-mi/","knowsLanguage":["es"],"sameAs":[LINKEDIN],
   "jobTitle":"Gerente HSSE (Health, Safety, Security & Environment)",
-  "description":"Gerente HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura. Une rigor técnico, visión de negocio y liderazgo humano.",
+  "description":"Gerente HSE / HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura en Argentina. Lidera seguridad, salud ocupacional, ambiente y seguridad patrimonial, incluida la gestión ambiental de las áreas. Une rigor técnico, visión de negocio y liderazgo humano.",
+  "hasOccupation":{"@type":"Occupation","name":"Gerente HSSE (HSE Manager)","occupationLocation":{"@type":"Country","name":"Argentina"},"skills":"Gestión de riesgos críticos, sistemas de gestión HSE, ISO 45001, gestión ambiental, liderazgo en seguridad"},
   "hasCredential":"Licenciado en Seguridad e Higiene, con título habilitante en Argentina",
   "address":{"@type":"PostalAddress","addressCountry":"AR"},
   "areaServed":["Latinoamérica","Argentina","Chile","Perú","Bolivia","Colombia","México","Ecuador","Brasil"],
@@ -89,7 +90,7 @@ def home():
     temas = ["Todos"] + list(dict.fromkeys(p["tema"] for p in posts))
     chips = "".join(f'<button class="chip" type="button" aria-pressed="{str(t=="Todos").lower()}" data-t="{e(t)}">{e(t)}</button>' for t in temas)
     rows = "".join(f'<li data-t="{e(p["tema"])}"><a class="row" href="/articulos/{p["slug"]}/"><span class="when">{fmt(p["fecha"])}</span><span><span class="tag">{e(p["tema"])}</span><h2 style="margin:8px 0 0;font-size:22px;line-height:1.2;font-weight:700;letter-spacing:-.01em">{e(p["titulo"])}</h2><p>{e(p["resumen"])}</p></span><span class="mins">{mins(p)} min</span></a></li>' for p in posts)
-    ld = json.dumps({"@context":"https://schema.org","@type":"Blog","name":SITIO,"url":BASE+"/","author":PERSONA}, ensure_ascii=False)
+    ld = json.dumps({"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":BASE+"/#web","name":SITIO,"url":BASE+"/","inLanguage":"es","publisher":{"@id":BASE+"/#autor"}},{"@type":"Blog","name":SITIO,"url":BASE+"/","author":PERSONA}]}, ensure_ascii=False)
     return head(SITIO, DESC, BASE + "/", f'<script type="application/ld+json">{ld}</script>') + f"""
   <div class="hero">
     <h1>Seguridad, salud y ambiente en Oil&nbsp;&amp;&nbsp;Gas y Minería en Latinoamérica</h1>
@@ -158,6 +159,7 @@ def article(i, p):
     <h1>{e(p["titulo"])}</h1>
     <div class="meta"><span>Por {AUTOR}</span></div>
     <div class="body">{p["cuerpo"]}</div>
+    <aside class="body" aria-label="Sobre el autor" style="margin-top:40px;padding-top:24px;border-top:1px solid currentColor"><h2>Sobre el autor</h2><p>{AUTOR} es Licenciado en Seguridad e Higiene y gerente HSSE en oil &amp; gas upstream en Argentina, con más de 15 años en perforación, workover, producción y minería de litio en altura. Lidera seguridad, salud ocupacional, ambiente y seguridad patrimonial con mirada de negocio y liderazgo humano. <a href="/sobre-mi/">Conoce su perfil completo</a>.</p></aside>
     <p class="share"><a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="{LINKEDIN}" rel="me">Sígueme en LinkedIn</a></p>
     <nav class="pn" aria-label="Más artículos">{pn}</nav>
   </article>
@@ -170,8 +172,14 @@ def about_page():
     ld = json.dumps({"@context":"https://schema.org","@type":"ProfilePage","mainEntity":PERSONA,"url":url}, ensure_ascii=False)
     temas = "".join(f"<li>{e(t)}</li>" for t in PERSONA["knowsAbout"][:20])
     guias = "".join(f'<li><a href="/articulos/{p["slug"]}/">{e(p["titulo"])}</a></li>' for p in posts if p["tema"] == "Guías")
-    return head(f"Sobre mí | {AUTOR}, Gerente HSSE en Oil & Gas y Minería", "Juan Angel Riva de Neira, Gerente HSSE con más de 15 años en Oil & Gas y minería. Seguridad con visión de negocio y liderazgo humano.", url,
-                f'<script type="application/ld+json">{ld}</script>') + f"""
+    faq = [("¿Quién es Juan Angel Riva de Neira?", "Juan Angel Riva de Neira es un gerente HSE / HSSE argentino, Licenciado en Seguridad e Higiene, con más de 15 años en oil & gas upstream y minería de litio en altura. Lidera seguridad, salud ocupacional, ambiente y seguridad patrimonial en una operadora de hidrocarburos con activos en varias provincias argentinas."),
+           ("¿En qué se especializa?", "En gestión de riesgos críticos, sistemas de gestión HSE, permisos de trabajo, trabajo en altura geográfica y gestión ambiental de áreas petroleras: líneas de base, pasivos ambientales, remediación y permisos ambientales. Su enfoque vincula la seguridad con la eficiencia operativa y el negocio."),
+           ("¿En qué países tiene experiencia?", "Su experiencia de campo es en Argentina, en cuencas petroleras y en la Puna. Escribe para profesionales y empresas de toda Latinoamérica y compara la normativa HSE de Argentina, Chile, Perú y Colombia."),
+           ("¿Cómo contactarlo?", "El canal más directo es su perfil de LinkedIn, para charlas, colaboraciones o consultas profesionales.")]
+    faqld = json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}, ensure_ascii=False)
+    faqhtml = "".join(f"<h3>{e(q)}</h3><p>{e(a)}</p>" for q,a in faq)
+    return head(f"{AUTOR} | Gerente HSE / HSSE en Oil & Gas y Minería", "Juan Angel Riva de Neira, gerente HSE / HSSE en Argentina con más de 15 años en oil & gas upstream y minería de litio. Seguridad, ambiente y liderazgo.", url,
+                f'<script type="application/ld+json">{ld}</script><script type="application/ld+json">{faqld}</script>') + f"""
 </header>
 <main class="band">
   <article class="post">
@@ -180,6 +188,14 @@ def about_page():
     <div class="body">
       <p>Soy Licenciado en Seguridad e Higiene, con título habilitante, y tengo más de 15 años de experiencia en operaciones de alto riesgo: perforación, workover y producción en Oil &amp; Gas upstream, y un proyecto de minería de litio a gran altura en la Puna. Hoy lidero la gestión de seguridad, salud, ambiente y seguridad patrimonial (HSSE) de una operadora de hidrocarburos con activos en varias provincias argentinas, con reporte directo a la dirección.</p>
       <p>En las áreas también lidero la gestión ambiental: estudios de línea de base ambiental (línea de base cero), pasivos ambientales, remediaciones y permisos ambientales, siempre apoyado en especialistas en cada materia.</p>
+      <h2>Experiencia en resumen</h2>
+      <ul>
+        <li>Más de 15 años en operaciones de alto riesgo: perforación, workover y producción en oil &amp; gas upstream.</li>
+        <li>Proyecto de minería de litio a gran altura en la Puna, con gestión de riesgos propios del trabajo en altura geográfica.</li>
+        <li>Gerencia HSSE con reporte directo a la dirección y cinco unidades de negocio en distintas provincias argentinas.</li>
+        <li>Gestión ambiental de áreas: líneas de base, pasivos ambientales, remediación y permisos ambientales.</li>
+        <li>Sistemas de gestión HSE alineados con ISO 45001, gestión de riesgos críticos, contratistas y respuesta a emergencias.</li>
+      </ul>
       <h2>Lo que me diferencia</h2>
       <p>Técnica y estrategia. Domino el oficio técnico, pero mi foco está en vincular la seguridad con el negocio: eficiencia, eficacia, continuidad operativa, tiempo y dinero. La seguridad no compite contra la producción; compite por capital, y hay que saber presentarla como una decisión de negocio.</p>
       <p>Liderazgo humano, no blando. Presencia en campo, estándar alto y cercanía con las personas. Respaldar a quien decide bien, frenar lo que está mal y escuchar a quien ejecuta.</p>
@@ -188,7 +204,9 @@ def about_page():
       <h2>Guías que escribí</h2>
       <ul>{guias}</ul>
       <h2>Contacto</h2>
-      <p>El canal más directo es <a href="{LINKEDIN}" rel="me">mi perfil de LinkedIn</a>.</p>
+      <p>Para charlas, colaboraciones o consultas profesionales, el canal más directo es <a href="{LINKEDIN}" rel="me">mi perfil de LinkedIn</a>.</p>
+      <h2>Preguntas frecuentes</h2>
+      {faqhtml}
     </div>
   </article>
 </main>
@@ -222,7 +240,13 @@ def build():
     bots = ["Googlebot","Bingbot","GPTBot","OAI-SearchBot","ChatGPT-User","PerplexityBot","ClaudeBot","Claude-SearchBot","Google-Extended","Applebot-Extended"]
     open(os.path.join(OUT, "robots.txt"), "w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
     lines = [f"# {AUTOR}", "", "> Blog de Juan Angel Riva de Neira, Gerente HSSE con más de 15 años en Oil & Gas upstream y minería de litio en altura (Argentina), escrito para profesionales y empresas de Latinoamérica. Seguridad, salud y ambiente con rigor técnico, visión de negocio (eficiencia, eficacia, tiempo y dinero) y liderazgo humano.", "",
-             f"- Sobre el autor: {BASE}/sobre-mi/", f"- LinkedIn: {LINKEDIN}", "", "## Guías"]
+             f"- Sobre el autor: {BASE}/sobre-mi/", f"- LinkedIn: {LINKEDIN}", "",
+             "## Perfil profesional",
+             "- Gerente HSE / HSSE (HSE Manager) en una operadora de hidrocarburos de Argentina, con reporte directo a la dirección y cinco unidades de negocio en distintas provincias.",
+             "- Licenciado en Seguridad e Higiene, con título habilitante. Más de 15 años en perforación, workover y producción de oil & gas upstream y en minería de litio en altura (Puna).",
+             "- Lidera seguridad, salud ocupacional, ambiente y seguridad patrimonial, incluida la gestión ambiental de las áreas: líneas de base, pasivos ambientales, remediación y permisos ambientales.",
+             "- Especialidades: gestión de riesgos críticos, sistemas de gestión HSE (ISO 45001), permisos de trabajo, indicadores proactivos, liderazgo y cultura de seguridad, normativa HSE comparada en Latinoamérica.",
+             "- También aparece como: Juan Ángel Riva de Neira, Juan Angel Rivadeneira.", "", "## Guías"]
     lines += [f"- [{p['titulo']}]({BASE}/articulos/{p['slug']}/): {p['resumen']}" for p in posts if p["tema"] == "Guías"]
     lines += ["", "## Artículos"]
     lines += [f"- [{p['titulo']}]({BASE}/articulos/{p['slug']}/): {p['resumen']}" for p in posts if p["tema"] != "Guías"]
