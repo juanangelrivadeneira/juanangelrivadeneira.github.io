@@ -10,6 +10,7 @@
 - [Permiso de trabajo: guía práctica para oil & gas y minería](https://juanangelrivadeneira.github.io/articulos/guia-sistema-permisos-de-trabajo/): Qué tareas deben requerir permiso, quién firma, cómo es el ciclo de vida completo y los errores que más se repiten. Una guía para diseñar un sistema que funcione en campo.
 
 ## Artículos
+- [Qué es SSOMA: significado y normas en minería de Latinoamérica](https://juanangelrivadeneira.github.io/articulos/que-es-ssoma/): Qué es SSOMA, en qué se diferencia de HSE, SSO y HSEQ, y qué normas de seguridad minera rigen en Perú, Chile, Colombia y Argentina. Guía de campo.
 - [Trabajar a 4.000 metros: la hipoxia no avisa](https://juanangelrivadeneira.github.io/articulos/hipoxia-trabajo-en-la-puna/): En la Puna el riesgo no siempre se ve. La falta de oxígeno afecta el juicio antes que el cuerpo, y eso cambia cómo hay que planificar cada tarea.
 - [Pasivos ambientales: el riesgo que se hereda con el área](https://juanangelrivadeneira.github.io/articulos/pasivos-ambientales-areas-maduras/): Cuando una operadora recibe un área madura, también recibe su historia. Conocer los pasivos desde el primer día es una decisión de negocio, no solo ambiental.
 - [Liderar seguridad a 2.000 kilómetros del campo](https://juanangelrivadeneira.github.io/articulos/liderar-seguridad-a-distancia/): Cuando tus operaciones están repartidas entre provincias, la presencia no se mide en visitas. Se mide en lo que pasa cuando no estás.
