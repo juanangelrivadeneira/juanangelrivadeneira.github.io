@@ -29,3 +29,10 @@ Alcance LATAM (desde nov 2026):
 - Los posts largos con muchas negritas unicode (𝗮𝘀í) rinden 280-800 impresiones. Evitarlas: los buscadores y lectores de pantalla no las leen y suenan a plantilla.
 - Las búsquedas laborales compartidas tienen buen alcance pero no construyen autoridad.
 - Temas ya tratados en LinkedIn (no repetir como tema nuevo; ver backlog_linkedin.json): liderar a distancia (6:40 AM), los 7 eslabones del profesional HSE, normalización del desvío, rediseñar permisos antes de digitalizar, la seguridad compite por capital, procesos antes que estructura, liderar con preguntas, control vs gestión e IA, el criterio como recurso escaso, crisis de empleabilidad.
+
+---
+
+# Indexación rápida (desde nov 2026)
+
+- Después de publicar y confirmar que el artículo responde, avisar a Bing (que alimenta a ChatGPT y Copilot) con IndexNow, pidiendo a un agente de lectura web que abra: https://www.bing.com/indexnow?url=<URL del artículo>&key=70df5f7991f5487bb800b5dfadda78a1 (HTTP 200 o 202 = aceptado). La clave está publicada en la raíz del sitio: no borrar el archivo 70df5f7991f5487bb800b5dfadda78a1.txt.
+- Cada artículo ya lleva una caja "Sobre el autor" generada por build.py; no hace falta repetir la biografía en el cuerpo, pero sí conviene anclar el texto en experiencia de campo propia (sin nombrar empresas).
